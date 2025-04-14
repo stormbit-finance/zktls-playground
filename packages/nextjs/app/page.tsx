@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Primus } from "./primus";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
             <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
           </h1>
           <div className="flex justify-center items-center space-x-2 flex-col">
+            <Primus />
             <p className="my-2 font-medium">Connected Address:</p>
             <Address address={connectedAddress} />
           </div>
