@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Primus } from "./primus";
+import { Reclaim } from "./reclaim";
 import { ZkPass } from "./zkpass";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
           <div className="flex justify-center items-center space-x-2 flex-col">
             <Primus />
             <ZkPass />
+            <Reclaim />
             <p className="my-2 font-medium">Connected Address:</p>
             <Address address={connectedAddress} />
           </div>

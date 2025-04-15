@@ -220,3 +220,101 @@ export const zkPassABI = [
   },
 ];
 export const zkPassAddress = "0xC417C29F67197BCA11A6521bB3f0996e9ae23d69";
+
+export const reclaimABI = [
+  {
+    inputs: [],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    inputs: [],
+    name: "reclaimAddress",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            components: [
+              {
+                internalType: "string",
+                name: "provider",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "parameters",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "context",
+                type: "string",
+              },
+            ],
+            internalType: "struct Claims.ClaimInfo",
+            name: "claimInfo",
+            type: "tuple",
+          },
+          {
+            components: [
+              {
+                components: [
+                  {
+                    internalType: "bytes32",
+                    name: "identifier",
+                    type: "bytes32",
+                  },
+                  {
+                    internalType: "address",
+                    name: "owner",
+                    type: "address",
+                  },
+                  {
+                    internalType: "uint32",
+                    name: "timestampS",
+                    type: "uint32",
+                  },
+                  {
+                    internalType: "uint32",
+                    name: "epoch",
+                    type: "uint32",
+                  },
+                ],
+                internalType: "struct Claims.CompleteClaimData",
+                name: "claim",
+                type: "tuple",
+              },
+              {
+                internalType: "bytes[]",
+                name: "signatures",
+                type: "bytes[]",
+              },
+            ],
+            internalType: "struct Claims.SignedClaim",
+            name: "signedClaim",
+            type: "tuple",
+          },
+        ],
+        internalType: "struct Reclaim.Proof",
+        name: "proof",
+        type: "tuple",
+      },
+    ],
+    name: "verifyProof",
+    outputs: [],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+export const reclaimAddress = "0xAe94FB09711e1c6B057853a515483792d8e474d0";
