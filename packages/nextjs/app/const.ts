@@ -136,3 +136,87 @@ export const primusABI = [
   },
 ];
 export const primusAddress = "0x3760aB354507a29a9F5c65A66C74353fd86393FA";
+
+export const zkPassABI = [
+  {
+    inputs: [],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    inputs: [],
+    name: "ECDSAInvalidSignature",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "length",
+        type: "uint256",
+      },
+    ],
+    name: "ECDSAInvalidSignatureLength",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "s",
+        type: "bytes32",
+      },
+    ],
+    name: "ECDSAInvalidSignatureS",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "_allocator",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: "bytes32",
+            name: "taskId",
+            type: "bytes32",
+          },
+          {
+            internalType: "bytes32",
+            name: "schemaId",
+            type: "bytes32",
+          },
+          {
+            internalType: "address",
+            name: "validator",
+            type: "address",
+          },
+          {
+            internalType: "bytes",
+            name: "allocatorSignature",
+            type: "bytes",
+          },
+        ],
+        internalType: "struct Proof",
+        name: "proof",
+        type: "tuple",
+      },
+    ],
+    name: "verify",
+    outputs: [],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+export const zkPassAddress = "0xC417C29F67197BCA11A6521bB3f0996e9ae23d69";
