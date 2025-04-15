@@ -78,8 +78,9 @@ export const ZkPass = () => {
       console.log("transgate error", error);
     }
   };
-  return <button onClick={verify}>ZkPass</button>;
+  return (
+    <button className="flex-1 btn btn-accent" onClick={verify}>
+      zkPass
+    </button>
+  );
 };
-// 0x39653035363630663163313234333463393832653062636231613261366130653337306464353365363761343436303561313738316131396166643231346236000000000000000000000000b1c4c1e1cdd5cf69e27a3a08c8f51145c2e12c6a
-// 0x433b216e58846f0f1772f2a3719da0a313bd8258ba56f662549a2a2a32b269c2
-// 0xa2d58da352cacadfc1a384dcf6e57daa6487b97e59174092d57cd59dde9ac9f6

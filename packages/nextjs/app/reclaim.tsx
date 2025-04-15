@@ -71,13 +71,15 @@ export const Reclaim = () => {
   };
 
   return (
-    <>
-      <button onClick={getVerificationReq}>Get Reclaim Verification Request</button>
+    <div className="flex-1 flex flex-col items-center justify-center">
+      <button className="btn btn-accent w-full" onClick={getVerificationReq}>
+        Reclaim
+      </button>
       {requestUrl && (
         <div style={{ margin: "20px 0" }}>
           <QRCode value={requestUrl} />
         </div>
       )}
-    </>
+    </div>
   );
 };

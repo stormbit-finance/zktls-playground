@@ -86,5 +86,9 @@ export const Primus = () => {
       // If failed, define your own logic.
     }
   };
-  return <button onClick={primusProof}>Primus</button>;
+  return (
+    <button className="flex-1 btn btn-accent" onClick={primusProof}>
+      Primus
+    </button>
+  );
 };
