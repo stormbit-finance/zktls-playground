@@ -1,19 +1,30 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { zkPassABI, zkPassAddress } from "./const";
+import { VerificationType } from "./types";
 import TransgateConnect from "@zkpass/transgate-js-sdk";
 import { ethers } from "ethers";
 import Web3 from "web3";
 
-export const ZkPass = () => {
+interface Props {
+  verificationType: VerificationType;
+}
+
+const schemaMap: Record<VerificationType, string> = {
+  UNVERIFIED: "a438fe6fcf084dff912c69525966d37d",
+  VERIFIED: "08d2067f3f1d4e639d75cf51ea749a3b",
+  PERFORMANCE: "b299bdd4ea314f059a2e415b9b10680f",
+};
+
+export const ZkPass = ({ verificationType }: Props) => {
   const verify = async () => {
     try {
-      if (!process.env.NEXT_PUBLIC_ZKPASS_APPID || !process.env.NEXT_PUBLIC_ZKPASS_SCHEMAID) {
-        console.error("ZKPASS_APPID or ZKPASS_SCHEMAID is not set");
+      if (!process.env.NEXT_PUBLIC_ZKPASS_APPID) {
+        console.error("ZKPASS_APPID is not set");
         return;
       }
       const appid = process.env.NEXT_PUBLIC_ZKPASS_APPID;
       const connector = new TransgateConnect(appid);
-      const schemaId = process.env.NEXT_PUBLIC_ZKPASS_SCHEMAID;
+      const schemaId = schemaMap[verificationType];
 
       const address = "0x292f0EcA3AcBAbBE816efB8952D8BE0b8e24ea96";
       const responseWithAddress = (await connector.launch(
